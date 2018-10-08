@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/logs/logs",
+    "pages/mycanvas/mycanvas",
+    "pages/upload/upload"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "你的颖像",
+    "navigationBarTextStyle": "black"
+  }
+}

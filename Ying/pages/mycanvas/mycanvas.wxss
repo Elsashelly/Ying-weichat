@@ -1,0 +1,59 @@
+/* pages/mycanvas.wxss */
+
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+  width:100%;
+  overflow: hidden;
+}
+
+.container-body {
+  display: flex;
+  padding-top: 80rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  width:500rpx;
+  height: 500rpx;
+  background-color: #fff;
+  border: 12rpx solid white;
+  border-radius: 5%;
+}
+.mycanvas {
+  width:500rpx;
+  height: 500rpx;
+  background-color: #fff;
+  border: 12rpx solid white;
+  border-radius: 5%;
+}
+.canvas {
+  width:1000px;
+  height: 1000px;
+  background-color: #fff;
+  border: 12rpx solid white;
+  border-radius: 5%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+}
+
+.button {
+  opacity: 0.9;
+  font-size: 30rpx;
+  justify-content: center;
+  background-color: white;
+  border: 2rpx solid gold;
+  box-shadow: 6rpx 6rpx 6rpx 6rpx white;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.button::after{
+  border: none;
+}

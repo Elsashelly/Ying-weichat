@@ -1,0 +1,16 @@
+<!--pages/mycanvas.wxml-->
+<view class="container">
+  <view class="container-body">
+    <view>
+      
+ <canvas bindtap="drawAvaterbind" canvas-id="mycanvas" class="mycanvas"></canvas>
+    </view>
+    <view class="buttons">
+      <button class='button' bindtap="upload" type="submit" >选择图片</button>
+      <button class='button' bindtap="bindSaveImage" type="submit" >保存图片</button>
+      <button class='button' bindtap="bindSelectIcon" type="submit" >更换元素</button>
+    </view>
+  </view>
+</view>
+<image bindtap="drawAvaterbind" class="image" src="{{imageUrl}}"></image>
+      <canvas bindtap="drawAvaterbind" canvas-id="canvas" class="canvas"></canvas>
