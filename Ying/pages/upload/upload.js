@@ -1,4 +1,4 @@
-import WeCropper from '../../pages/we-cropper/we-cropper.js'
+import WeCropper from '../../pages/we-cropper/we-cropper.min.js'
 
 const device = wx.getSystemInfoSync()
 const width = device.windowWidth
@@ -15,7 +15,7 @@ Page({
       cut: {
         x: (width-300)/2,
         y: (height - 300) / 2,
-        width: 300,
+        width: 300, 
         height: 300
       }
     }
@@ -31,6 +31,7 @@ Page({
   },
   getCropperImage () {
     this.wecropper.getCropperImage((avatar) => {
+      console.log("upload.avatar.url: ",avatar);
       if (avatar) {
         //  获取到裁剪后的图片
         wx.redirectTo({
@@ -46,7 +47,7 @@ Page({
 
     wx.chooseImage({
       count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success (res) {
         const src = res.tempFilePaths[0]

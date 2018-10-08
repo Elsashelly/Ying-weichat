@@ -3,6 +3,7 @@
     "pages/home/home",
     "pages/logs/logs",
     "pages/mycanvas/mycanvas",
+    "pages/normal/normal",
     "pages/upload/upload"
   ],
   "window": {

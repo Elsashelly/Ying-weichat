@@ -614,6 +614,8 @@ function methods () {
     if (self.croperTarget) {
       //  画布绘制图片
       self.ctx.drawImage(self.croperTarget, self.imgLeft, self.imgTop, self.scaleWidth, self.scaleHeight);
+     
+      console.log("rectXY",self.rectX, self.rectY,"baseWidth", self.baseWidth, self.baseHeight,"src",self.src, x, y, width, height, "drawself",self.croperTarget, "img",self.imgLeft, self.imgTop, "scale",self.scaleWidth, self.scaleHeight)
     }
     isFunction(self.onBeforeDraw) && self.onBeforeDraw(self.ctx, self);
 
@@ -624,7 +626,6 @@ function methods () {
 
   self.pushOrign = function (src) {
     self.src = src;
-
     isFunction(self.onBeforeImageLoad) && self.onBeforeImageLoad(self.ctx, self);
 
     wx.getImageInfo({
@@ -672,14 +673,68 @@ function methods () {
       height: height
     }, done);
   };
+  /*获取高清的剪切图象--by@elsa*/
+  
+  self.getCropperImage = function(){   
+    console.log("src", x, y, width, height, "drawself", self.croperTarget, self.imgLeft, self.imgTop, self.scaleWidth, self.scaleHeight) 
+    var src_width;
+    var src_height;
+    wx.getImageInfo({
+        src: self.src,
+        success: function success(res) {
+          src_width=res.width
+          src_height=res.height
+          console.log("原图的w:",res.width ,"h:", res.height)
+        }
+    })
+    var canv = wx.createCanvasContext('canvas')
+    var img=self.src
+    var sx = Math.abs(self.imgLeft-x)
+    var sy = Math.abs(self.imgTop-y)
+    var swidth=self.scaleWidth/self.baseWidth*src_width
+    //canv.drawImage(img,sx,sy,swidth,swidth,0,0,1000,1000)
+    canv.drawImage(img,0,0,1000,1000)
+    console.log("x,y",x,y,"sx,sy,swidth",sx,sy,swidth);
+    canv.restore()
+    canv.save()
+    canv.draw()
+   
+    var args = [], len = arguments.length;
+    while (len--) args[len] = arguments[len];
+    var ARG_TYPE = toString.call(args[0]);
+    var fn = args[args.length - 1];
+    setTimeout(() => {
+ 
+    wx.canvasToTempFilePath({
+      canvasId: 'canvas',
+      x: 0,
+      y: 0,
+      width: 1000,
+      height: 1000,
+      destWidth: 1000,
+      destHeight: 1000,
+      success: function success(res) {
+        isFunction(fn) && fn.call(self, res.tempFilePath);
+      },
+      fail: function fail(res) {
+        console.log("1000pxcanvas fail")
+        isFunction(fn) && fn.call(self, null);
+        
+      }
+    })
+    }, 600)
+    return self
+  };
 
+  /*获取高清的剪切图象--by@elsa*/
+/*
   self.getCropperImage = function () {
     var args = [], len = arguments.length;
     while ( len-- ) args[ len ] = arguments[ len ];
 
     var ARG_TYPE = toString.call(args[0]);
     var fn = args[args.length - 1];
-
+    
     switch (ARG_TYPE) {
       case '[object Object]':
         var ref = args[0];
@@ -722,10 +777,11 @@ function methods () {
           }
         }); break
     }
-
     return self
   };
+*/
 }
+
 
 /**
  * 获取最新缩放值
