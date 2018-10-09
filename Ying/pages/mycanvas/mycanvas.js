@@ -23,8 +23,8 @@ Page({
         const src = res.tempFilePaths[0]
 
         wx.redirectTo({
-          url: `../normal/normal?src=${src}`
-          
+          //url: `../normal/normal?src=${src}`
+          url: `../upload/upload?src=${src}`
         })
       }
     })
@@ -82,6 +82,18 @@ Page({
       }
     })
   },
+  //预览图片
+  bindPreview:function(){
+    var src = this.data.imageUrl
+    if (src) {
+      wx.previewImage({
+        current: '', // 当前显示图片的http链接
+        urls: [src] // 需要预览的图片http链接列表
+      })
+    } else {
+      console.log('获取图片地址失败，请稍后重试')
+    }
+  },
 
   //选择元素
   bindSelectIcon:function(){
@@ -98,18 +110,9 @@ Page({
     this.drawbgImage()
   },
   drawbgImage: function () {
-    var that=this;
-    var canv = wx.createCanvasContext('mycanvas')
+    var that = this;
     var systemInfo = wx.getSystemInfoSync()
-    var width = systemInfo.windowWidth/1.5 
-    //var width ='1000';
-    canv.drawImage(that.data.image_url, 0, 0, width, width)
-    canv.restore()
-    canv.save()
-    canv.drawImage(that.data.ICON_URL, 0, 0, width, width)
-    canv.restore()
-    canv.save()
-    canv.draw()
+
     var canv2 = wx.createCanvasContext('canvas')
     var width = device.windowWidth
     canv2.drawImage(that.data.image_url, 0, 0, width, width)
@@ -119,9 +122,21 @@ Page({
     canv2.restore()
     canv2.save()
     canv2.draw()
+    
+
+    var canv = wx.createCanvasContext('mycanvas')
+    var width = systemInfo.windowWidth/1.5 
+    canv.drawImage(that.data.image_url, 0, 0, width, width)
+    canv.restore()
+    canv.save()
+    canv.drawImage(that.data.ICON_URL, 0, 0, width, width)
+    canv.restore()
+    canv.save()
+    canv.draw()
+    
     setTimeout(() => {
       this.canvastoImg()
-    }, 600)
+    }, 500)
   },
   canvastoImg: function () {
     var that = this

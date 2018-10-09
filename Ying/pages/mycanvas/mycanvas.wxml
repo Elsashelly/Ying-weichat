@@ -3,7 +3,7 @@
   <view class="container-body">
     <view>
       
-      <canvas bindtap="drawAvaterbind" canvas-id="mycanvas" class="mycanvas"></canvas>
+      <canvas bindtap="bindPreview" canvas-id="mycanvas" class="mycanvas"></canvas>
     </view>
     <view class="buttons">
       <button class='button' bindtap="upload" type="submit" >选择图片</button>
@@ -12,5 +12,5 @@
     </view>
   </view>
 </view>
-<image bindtap="drawAvaterbind" class="image" src="{{imageUrl}}"></image>
-      <canvas bindtap="drawAvaterbind" canvas-id="canvas" class="canvas"></canvas>
+<image bindtap="bindPreview" class="image" src="{{imageUrl}}"></image>
+      <canvas bindtap="bindPreview" canvas-id="canvas" class="canvas"></canvas>
