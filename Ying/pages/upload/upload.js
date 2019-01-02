@@ -35,7 +35,7 @@ Page({
       if (avatar) {
         //  获取到裁剪后的图片
         wx.redirectTo({
-          url: `../mycanvas/mycanvas?avatar=${avatar}`
+          url: `../index/index?avatar=${avatar}`
         })
       } else {
         console.log('获取图片失败，请稍后重试')

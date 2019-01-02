@@ -1,10 +1,2 @@
-
-
-<view class="container" bindtap="bindViewTap">
-  <button class="usermotto">
-    <view class="user-motto">
-      <text  >{{motto}}</text>
-    </view>
-  </button>
-
-</view>
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
