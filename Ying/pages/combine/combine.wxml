@@ -1,0 +1,9 @@
+<view class="combine_container" >
+  <view >
+    <canvas class="combine" canvas-id="myCanvas" style="height:300px;;width:300px;;"/>
+  </view>
+  <view class="combine-buttons">
+    <view class="SaveImage" bind:tap="savePic">保存至相册</view>
+  </view>
+</view>
+ 

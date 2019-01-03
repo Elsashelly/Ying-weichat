@@ -1,15 +1,18 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/imageeditor/imageeditor",
+    "pages/combine/combine",
     "pages/home/home",
     "pages/logs/logs",
-    "pages/mycanvas/mycanvas",
-    "pages/normal/normal",
-    "pages/upload/upload"
+    "pages/upload/upload"    
   ],
   "window": {
     "backgroundTextStyle": "black",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "你的颖像",
     "navigationBarTextStyle": "black"
-  }
+  },
+  "disableScroll": true,
+  "deviceOrientation": "landscape"
 }

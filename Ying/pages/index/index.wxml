@@ -1,0 +1,12 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="container-body">
+    <image class="image" src="{{bgPic}}" ></image>
+    <view class="buttons">
+      <!--<button class="button" open-type="getUserInfo" bindgetuserinfo="getAvatar" >微信头像</button>-->
+      <button class='button' bindtap="SetbgPic" type="submit">初始头像</button>
+      <button class='button' bindtap="upload" type="submit" >选择图片</button>
+      <button  class='button'bind:tap="nextPage" >添加元素</button>
+    </view>
+  </view>
+</view>

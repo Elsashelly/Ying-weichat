@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -61,6 +61,17 @@
 					"name": "logs",
 					"pathName": "pages/logs/logs",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "imageeditor",
+					"pathName": "pages/imageeditor/imageeditor",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "combine",
+					"pathName": "pages/combine/combine"
 				}
 			]
 		}
